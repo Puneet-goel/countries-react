@@ -1,8 +1,7 @@
 # Deployment 
 https://countries-puneet.netlify.app/
 
-![header](https://user-images.githubusercontent.com/55274410/132069861-fcd35a79-ac1e-438c-8bad-64b851acf670.PNG)
-
+![header](https://user-images.githubusercontent.com/55274410/132070308-e0703c5c-1681-4f5d-bbe2-1e968fcc8bdd.PNG)
 
 # Getting Started with Create React App
 
