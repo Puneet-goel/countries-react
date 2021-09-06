@@ -1,12 +1,14 @@
 import React,{ useState,useEffect } from 'react';
 import getCountries from "../api/api";
 import Country from "./Country";
+import Loader from "./Loader";
 import './styles.css';
 
 const Main = () => {
 
   const [cont,setCont] = useState('Asia');
   const [data,setData] = useState([]);
+  const [loading,setLoading] = useState(false);
 
   const changeData = (x) => {
     setData(x);
@@ -18,10 +20,15 @@ const Main = () => {
   
 
   const refresh = (event) => {
+
     setTimeout(() => {
+      setLoading(false);
       getCountries(cont,changeData);
     }, 1000);
+
+    setLoading(true);
     setData([]);
+    
     event.preventDefault();
   }
 
@@ -39,7 +46,7 @@ const Main = () => {
       <nav className="navbar navbar-dark px-5 py-3 header">
         <div className="dropdown">
           <button className="btn btn-secondary dropdown-toggle box" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-            Select a Country
+            Select a Continent
           </button>
           <ul className="dropdown-menu header" aria-labelledby="dropdownMenuButton1">
             <li><a className="dropdown-item" href="/" onClick={changeCont}>Africa</a></li>
@@ -55,6 +62,8 @@ const Main = () => {
       </nav>
       
       <h1 className="text-center pt-3">{cont.toUpperCase()}</h1>
+
+      <Loader isLoading={loading}/>
       
       <div className="container p-5">
         <div className="row">

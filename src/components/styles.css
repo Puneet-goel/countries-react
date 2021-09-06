@@ -34,6 +34,12 @@ body {
     object-fit: cover;
 }
 
+@media screen and (max-width: 600px) {
+    .card-img-top {
+      height: 30vw;
+    }
+}
+
 .header{
     background-color: #a892ee;
 }
@@ -54,4 +60,8 @@ body {
 
 .back{
     background-color: #3f3f3f;
+}
+
+div.loader {
+    font-size: 100px;
 }
