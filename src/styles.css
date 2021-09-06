@@ -1,0 +1,20 @@
+a{
+    color: floralWhite;
+    text-decoration: none;
+}
+
+a:hover {
+    color: gray;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+    display: none;
+}
+  
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+    color: floralWhite;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}

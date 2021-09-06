@@ -1,5 +1,5 @@
 import React,{ useState,useEffect } from 'react';
-import getCountries from "../api/api";
+import getCountries from "../../api/api";
 import Country from "./Country";
 import Loader from "./Loader";
 import './styles.css';
