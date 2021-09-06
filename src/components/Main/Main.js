@@ -1,14 +1,14 @@
 import React,{ useState,useEffect } from 'react';
 import getCountries from "../../api/api";
 import Country from "./Country";
-import Loader from "./Loader";
+import Refresher from "./Refresher";
 import './styles.css';
 
 const Main = () => {
 
   const [cont,setCont] = useState('Asia');
   const [data,setData] = useState([]);
-  const [loading,setLoading] = useState(false);
+  const [Refreshing,setRefreshing] = useState(false);
 
   const changeData = (x) => {
     setData(x);
@@ -22,11 +22,11 @@ const Main = () => {
   const refresh = (event) => {
 
     setTimeout(() => {
-      setLoading(false);
+      setRefreshing(false);
       getCountries(cont,changeData);
     }, 1000);
 
-    setLoading(true);
+    setRefreshing(true);
     setData([]);
     
     event.preventDefault();
@@ -63,7 +63,7 @@ const Main = () => {
       
       <h1 className="text-center pt-3">{cont.toUpperCase()}</h1>
 
-      <Loader isLoading={loading}/>
+      <Refresher isRefreshing={Refreshing}/>
       
       <div className="container p-5">
         <div className="row">

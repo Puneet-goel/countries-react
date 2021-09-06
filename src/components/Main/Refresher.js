@@ -1,16 +1,16 @@
 import React from 'react';
 
-function Loader({isLoading}) {
+function Refresher({isRefreshing}) {
   
-  if(!isLoading){
+  if(!isRefreshing){
     return (<div></div>);
   }else{
     return(
       <div className="loader text-center">
-        <i className="fa fa-cog fa-spin"/>
+        <i className="fa fa-refresh fa-spin"/>
       </div>
     );
   }
 }
 
-export default Loader;
+export default Refresher;
