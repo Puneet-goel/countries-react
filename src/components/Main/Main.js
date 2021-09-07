@@ -8,37 +8,26 @@ const Main = () => {
 
   const [cont,setCont] = useState('Asia');
   const [data,setData] = useState([]);
-  const [Refreshing,setRefreshing] = useState(false);
-
-  const changeData = (x) => {
-    setData(x);
-  }
+  const [refreshing,setRefreshing] = useState(false);
+  const changeData = (curData) => (setData(curData))
 
   useEffect(()=>{
     getCountries(cont,changeData);
-  },[cont,setCont]);
-  
+  },[cont,refreshing]);
 
   const refresh = (event) => {
+    event.preventDefault();
+    setRefreshing(true);
 
     setTimeout(() => {
       setRefreshing(false);
-      getCountries(cont,changeData);
-    }, 1000);
-
-    setRefreshing(true);
-    setData([]);
-    
-    event.preventDefault();
+    }, 2000);
   }
 
   const changeCont = (event) => {
-    let x = event.target.innerHTML.toLowerCase();
-    setTimeout(() => {
-      setCont(x);
-    }, 1000);
-    setData([]);
     event.preventDefault();
+    let curCont = event.target.innerHTML.toLowerCase();
+    setCont(curCont);
   }
 
   return (
@@ -61,21 +50,26 @@ const Main = () => {
         </button>
       </nav>
       
-      <h1 className="text-center pt-3">{cont.toUpperCase()}</h1>
-
-      <Refresher isRefreshing={Refreshing}/>
-      
-      <div className="container p-5">
-        <div className="row">
-          {
-            data.map((cur,index) => (
-              <div className="col-sm-6 col-md-4 mb-5" key={index} >
-                <Country country={cur}/>
+      {
+        (refreshing)?
+        <Refresher isRefreshing={refreshing}/>:
+        (
+          <>
+            <h1 className="text-center pt-3">{cont.toUpperCase()}</h1>
+            <div className="container p-5">
+              <div className="row">
+                {
+                  data.map((cur,index) => (
+                    <div className="col-sm-6 col-md-4 mb-5" key={index} >
+                      <Country country={cur}/>
+                    </div>
+                  ))
+                }
               </div>
-            ))
-          }
-        </div>
-		  </div>
+            </div>
+          </>
+        ) 
+      }
 
     </div>
   );

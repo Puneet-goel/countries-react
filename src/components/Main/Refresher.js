@@ -1,4 +1,5 @@
 import React from 'react';
+import { Roller } from 'react-awesome-spinners'
 
 function Refresher({isRefreshing}) {
   
@@ -6,8 +7,8 @@ function Refresher({isRefreshing}) {
     return (<div></div>);
   }else{
     return(
-      <div className="loader text-center">
-        <i className="fa fa-refresh fa-spin"/>
+      <div className="loader text-center ">
+        <Roller />
       </div>
     );
   }
