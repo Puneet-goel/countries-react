@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apiUrl = "https://restcountries.eu/rest/v2/region/";
+const apiUrl = "https://restcountries.com/v3.1/region/europe";
 
 const getCountries = async(continent,changeData) => {
     try{
