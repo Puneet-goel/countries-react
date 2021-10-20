@@ -1,3 +1,10 @@
+#root{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+}
+
 .grow { 
     background-color: rgb(24, 26, 27);
     transition: all .2s ease-in-out; 
@@ -30,6 +37,9 @@
 
 .back{
     background-color: #3f3f3f;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .loader {
